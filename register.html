@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0025)http://www.bystudent.com/ -->
+<html class="uk-touch">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  <title>中大论坛</title> 
+  <link rel="stylesheet" id="qzhai-css" href="./ByStudent_files/style_o.css" type="text/css" media="all" /> 
+  <link rel="stylesheet" id="qzhai_icont-css" href="./ByStudent_files/font_ph8abo6zeqoxbt9.css" type="text/css" media="all" /> 
+  <script type="text/javascript" src="./ByStudent_files/jquery.min.js"></script> 
+  <script type="text/javascript" src="./ByStudent_files/si_captcha.js"></script> 
+ </head> 
+ <body class="uk-height-1-1" style="margin: auto;"> 
+  <div id="main" class="wp uk-grid uk-grid-collapse" style="max-width:660px ;"> 
+   <!--content--> 
+   <div id="content" class="uk-width-small-1-1 uk-width-medium-3-4 uk-width-large-4-5 uk-grid uk-grid-collapse" style="margin: auto;"> 
+    <div class=" uk-width-1-1"> 
+     <div id="index" class="bs uk-text-break"> 
+      <link rel="stylesheet" type="text/css" href="register-login.css" /> 
+      <h4>
+       <div class="index-tab" style="margin:0;padding: 0"> 
+        <div class="index-slide-nav" style="margin: 0;padding: 0;"> 
+         <a href="login.html">登录</a> 
+         <a href="register.html" class="active">注册</a> 
+        </div> 
+       </div>
+      </h4> 
+      <div class="cent-box" style="height: auto;"> 
+       <div class="cont-main clearfix" style="padding-bottom: 20px;"> 
+ <form action="register.jsp" method="post" onsubmit="return check()">
+        <div class="login form"> 
+       
+         <div class="group"> 
+          <div class="group-ipt email"> 
+          <div style="float: left;">
+           <input name="email" class="ipt" id="email" required="" type="text" placeholder="中大邮箱地址" value="" />
+          </div>
+            <div class="button"  style="float: right;width: 110px; margin: 3px;"> 
+              <input type="button" id="button" value="获取验证码" onclick="settime(this),MakeForm() " style="height: 35px;padding:0"  /> 
+            </div>
+          </div> 
+          <div class="group-ipt user"> 
+           <input name="user" class="ipt" id="user" required="" type="text" placeholder="用户名" value="" /> 
+          </div> 
+          <div class="group-ipt password"> 
+            <input name="password" class="ipt" id="password" required="" type="password" placeholder="登录密码" value="" /> 
+          </div> 
+          <div class="group-ipt password1"> 
+           <input name="password1" class="ipt" id="password1" required="" type="password" placeholder="重复密码" value="" /> 
+          </div> 
+          <div class="group-ipt verify"> 
+           <input name="verify" class="ipt" id="verify" required="" type="text" placeholder="输入验证码" value="" /> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="button"> 
+         <button class="login-btn register-btn" id="button" type="submit">注册</button> 
+        </div> 
+        
+       </div> 
+</form>
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript" color="0,191,255" zindex="-1" opacity="100" count="99" src="./ByStudent_files/canvas-nest.min.js"></script> 
+  <script type="text/javascript" src="./ByStudent_files/wp-embed.min.js"></script> 
+  <script type="text/javascript">
+    function check()  
+        {  
+           if(form.user.value.length<6 || form.user.value.length>16)  
+           {  
+           alert('用户名不合法！请输入6-16位用户名');  
+           form.user.focus();  
+           return false;  
+           }  
+           if(form.password.value.length<6 ||form.password.value.length>16)  
+           {  
+           alert('密码不合法！请输入6-16位密码');  
+           form.username.focus();  
+           return false;  
+           }  
+           if(form.password.value != form.password1.value)//判断两次输入的密码是否一致  
+           {  
+            alert("两次输入的密码不一致！");  
+            form.pass.focus();  
+            return false;  
+           }  
+        }  
+  </script>
+  <script type="text/javascript" src="./ByStudent_files/app.js"></script>
+  <script type="text/javascript"> 
+  var countdown=6; 
+  function checkEmail(){
+　　var myemail=document.getElementById('email').value;
+
+　　var myReg=/^[a-zA-Z0-9_-]+@([a-zA-Z0-9]+\.)+(com|cn|net|org)$/;
+ 
+　　if(myReg.test(myemail)){
+　　　　return true;
+　　}else{
+　　　　alert(myemail);
+　　　　return false;
+  }
+  }
+  function MakeForm() 
+  { 
+    if (checkEmail()) {
+    var form1 = document.createElement("form"); 
+    document.body.appendChild(form1); 
+    form1.style.display="none";
+    var input = document.createElement("input"); 
+    input.type = "text"; 
+    input.name = "email"; 
+    input.value = document.getElementById('email').value; 
+    form1.appendChild(input); 
+    form1.method = "POST"; 
+    form1.action = "mail.jsp"; 
+    form1.target ="_blank";
+    form1.submit(); 
+    document.body.removeChild(form1);
+    }
+  } 
+  function settime(obj) { 
+    if (countdown == 0) { 
+        obj.removeAttribute("disabled");    
+        obj.value="免费获取验证码"; 
+        countdown = 6; 
+        return;
+    } else { 
+        obj.setAttribute("disabled", true); 
+        obj.value="重新发送(" + countdown + ")"; 
+        countdown--; 
+    } 
+  setTimeout(function() { 
+    settime(obj) }
+    ,1000) 
+  }
+  </script>
+  <a href="http://www.bystudent.com/#" class="top" data-uk-smooth-scroll="" style="display:none"><i class="uk-icon-angle-up"></i></a> 
+  <canvas id="c_n8" width="1280" height="589" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 20;"></canvas>  
+ </body>
+</html>
